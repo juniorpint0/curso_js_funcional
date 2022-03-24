@@ -6,17 +6,15 @@ function somar(n1) {
 		};
 	};
 }
-// function somar(n1, n2) {
-// 	return n1 + n2;
-// }
+
+const somarN1N2 = somar (3)(4)
+console.log(somarN1N2(13))
 
 const somar3 = somar(3)(4)(5);
-// const resultado = somar(1, 2)
-// console.log(somar(1, 2));
+
 console.log(somar3);
 
 // calcular(3)(7)(fn)
-
 function calcular(n1) {
 	return function(n2) {
 		return function(fn) {
