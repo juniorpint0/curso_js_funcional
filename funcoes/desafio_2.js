@@ -10,19 +10,30 @@ const carrinho = [
 // 2. qtde: * preco -> total
 // 3. media totais
 
+const quant = item => item.qtde
 const fragil = (item) => item.fragil;
 const getTotal = (item) => item.qtde * item.preco;
+const quantItens = (item) => item.qtde
 const getMedia = (acc, el) => {
-	const novaQtde = acc.qtde + 1;
+	const novaQtde = acc.qtde //+ 1;
 	const novoTotal = acc.total + el;
 	return {
 		qtde: novaQtde,
 		total: novoTotal,
 		media: novoTotal / novaQtde
 	};
+	
+};
+const somar = (acc, el) => {
+	return acc + el;
 };
 
-const mediaInicial = { qtde: 0, total: 0, media: 0 };
+const contagem = carrinho.filter(fragil).map(quant).reduce(somar)
+
+const mediaInicial = { qtde: contagem, total: 0, media: 0 };
+
 const media = carrinho.filter(fragil).map(getTotal).reduce(getMedia, mediaInicial).media;
 
-console.log(`A média é ${media}!`);
+console.log(`A quantidade de itens no carrinho é ${contagem} e seu valor total ${carrinho.filter(fragil).map(getTotal).reduce(somar)}, sua média foi ${media}!`);
+
+//console.log(contagem)
