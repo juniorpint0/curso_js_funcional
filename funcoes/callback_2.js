@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const caminho = path.join(__dirname, 'dados.txt');
+const caminho = path.join(__dirname, 'dados.txt'); // _dirname quer dizer o mesmo diretório da pasta
 
 function exibirConteudo(err, conteudo) {
 	console.log(conteudo.toString());
